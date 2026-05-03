@@ -1,0 +1,222 @@
+/* global.css */
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;800&family=Outfit:wght@400;700;900&display=swap');
+
+:root {
+  --bg-color: #000000;
+  --text-color: #ffffff;
+  --accent-color: #FF2D2D;
+  --card-bg: #111111;
+  --nav-bg: rgba(0, 0, 0, 0.8);
+  --glass-bg: rgba(255, 255, 255, 0.05);
+}
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  background-color: var(--bg-color);
+  color: var(--text-color);
+  font-family: 'Inter', sans-serif;
+  overflow-x: hidden;
+  -webkit-font-smoothing: antialiased;
+}
+
+h1, h2, h3, h4, h5, h6 {
+  font-family: 'Outfit', sans-serif;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+}
+
+a {
+  text-decoration: none;
+  color: inherit;
+}
+
+ul {
+  list-style: none;
+}
+
+button {
+  cursor: pointer;
+  border: none;
+  outline: none;
+  font-family: 'Inter', sans-serif;
+}
+
+/* Typography Utilities */
+.text-accent {
+  color: var(--accent-color);
+}
+
+.heading-xl {
+  font-size: clamp(3rem, 5vw, 5rem);
+  font-weight: 900;
+  line-height: 1.1;
+  margin-bottom: 1rem;
+}
+
+.heading-lg {
+  font-size: clamp(2rem, 4vw, 3.5rem);
+  font-weight: 800;
+  margin-bottom: 1.5rem;
+}
+
+.heading-md {
+  font-size: clamp(1.5rem, 3vw, 2.5rem);
+  font-weight: 700;
+  margin-bottom: 1rem;
+}
+
+.text-lg {
+  font-size: clamp(1.1rem, 1.5vw, 1.3rem);
+  line-height: 1.6;
+  opacity: 0.9;
+}
+
+/* Layout Utilities */
+.container {
+  width: 100%;
+  max-width: 1280px;
+  margin: 0 auto;
+  padding: 0 2rem;
+}
+
+.section {
+  padding: 6rem 0;
+}
+
+.grid-2 {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+  gap: 2rem;
+}
+
+.grid-3 {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+  gap: 2rem;
+}
+
+/* Components */
+.btn-primary {
+  background-color: var(--accent-color);
+  color: white;
+  padding: 1rem 2rem;
+  font-size: 1.1rem;
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+  transition: all 0.3s ease;
+  display: inline-block;
+  box-shadow: 0 0 15px rgba(255, 45, 45, 0.4);
+}
+
+.btn-primary:hover {
+  background-color: #ff4a4a;
+  box-shadow: 0 0 25px rgba(255, 45, 45, 0.7);
+  transform: translateY(-2px);
+}
+
+.btn-outline {
+  background-color: transparent;
+  color: white;
+  border: 2px solid white;
+  padding: 0.9rem 2rem;
+  font-size: 1.1rem;
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+  transition: all 0.3s ease;
+  display: inline-block;
+}
+
+.btn-outline:hover {
+  background-color: white;
+  color: black;
+}
+
+/* Cards & Effects */
+.glass-card {
+  background: var(--card-bg);
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  padding: 2rem;
+  transition: all 0.3s ease;
+  position: relative;
+  overflow: hidden;
+}
+
+.glass-card::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: -100%;
+  width: 100%;
+  height: 2px;
+  background: linear-gradient(90deg, transparent, var(--accent-color));
+  transition: left 0.5s ease;
+}
+
+.glass-card:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 10px 30px rgba(255, 45, 45, 0.1);
+  border-color: rgba(255, 45, 45, 0.3);
+}
+
+.glass-card:hover::before {
+  left: 100%;
+}
+
+/* Animations */
+@keyframes fadeUp {
+  from {
+    opacity: 0;
+    transform: translateY(30px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.animate-fade-up {
+  animation: fadeUp 0.8s cubic-bezier(0.16, 1, 0.3, 1) forwards;
+}
+
+.delay-100 { animation-delay: 100ms; }
+.delay-200 { animation-delay: 200ms; }
+.delay-300 { animation-delay: 300ms; }
+
+/* Motion Lines Background Effect */
+.speed-lines {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: repeating-linear-gradient(
+    90deg,
+    transparent,
+    transparent 50px,
+    rgba(255, 255, 255, 0.02) 50px,
+    rgba(255, 255, 255, 0.02) 51px
+  );
+  pointer-events: none;
+  z-index: 0;
+}
+
+/* Mobile Responsive */
+@media (max-width: 768px) {
+  .section {
+    padding: 4rem 0;
+  }
+  .container {
+    padding: 0 1.5rem;
+  }
+}

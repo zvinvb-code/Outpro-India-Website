@@ -1,0 +1,23 @@
+.testimonial-card {
+  padding: 20px;
+  border-radius: 10px;
+  box-shadow: 0 4px 15px rgba(0,0,0,0.1);
+  background: white;
+}
+
+.review {
+  font-style: italic;
+  margin-bottom: 15px;
+}
+
+.user-info {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+
+.user-info img {
+  width: 40px;
+  height: 40px;
+  border-radius: 50%;
+}

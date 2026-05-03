@@ -1,0 +1,64 @@
+/* ── SERVICE CARD ── */
+.service-card {
+  width: 280px;
+  min-height: 200px;
+  padding: 28px 24px;
+  border-radius: 12px;
+  border: 1px solid #eee;
+  box-shadow: 0 2px 12px rgba(0,0,0,0.05);
+  background: #fff;
+  text-align: left;
+  transition: transform 0.25s, box-shadow 0.25s;
+  position: relative;
+  overflow: hidden;
+}
+
+.service-card::after {
+  content: "";
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  height: 3px;
+  background: #000;
+  transform: scaleX(0);
+  transform-origin: left;
+  transition: transform 0.3s ease;
+}
+
+.service-card:hover {
+  transform: translateY(-6px);
+  box-shadow: 0 10px 30px rgba(0,0,0,0.1);
+}
+
+.service-card:hover::after {
+  transform: scaleX(1);
+}
+
+.icon {
+  font-size: 32px;
+  margin-bottom: 16px;
+  display: block;
+  line-height: 1;
+}
+
+.service-card h3 {
+  font-size: 18px;
+  font-weight: 700;
+  color: #111;
+  margin: 0 0 10px;
+}
+
+.service-card p {
+  font-size: 14px;
+  color: #666;
+  line-height: 1.65;
+  margin: 0;
+}
+
+/* ── RESPONSIVE ── */
+@media (max-width: 768px) {
+  .service-card {
+    width: 90%;
+  }
+}

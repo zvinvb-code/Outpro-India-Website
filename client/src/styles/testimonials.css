@@ -1,0 +1,25 @@
+.testimonials-page {
+  margin-top: 80px;
+  padding: 60px 20px;
+  text-align: center;
+}
+
+.testimonials-page h1 {
+  font-size: 36px;
+  margin-bottom: 30px;
+}
+
+.testimonials-grid {
+  display: flex;
+  justify-content: center;
+  gap: 20px;
+  flex-wrap: wrap;
+}
+
+/* responsive */
+@media (max-width: 768px) {
+  .testimonials-grid {
+    flex-direction: column;
+    align-items: center;
+  }
+}

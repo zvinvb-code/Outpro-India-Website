@@ -1,0 +1,124 @@
+.navbar {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  padding: 1.5rem 0;
+  z-index: 1000;
+  transition: all 0.3s ease;
+  background: transparent;
+}
+
+.navbar.scrolled {
+  background: rgba(0, 0, 0, 0.95);
+  padding: 1rem 0;
+  box-shadow: 0 4px 30px rgba(0, 0, 0, 0.5);
+  backdrop-filter: blur(10px);
+  border-bottom: 1px solid rgba(255, 45, 45, 0.2);
+}
+
+.nav-container {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.nav-logo {
+  font-family: 'Outfit', sans-serif;
+  font-size: 1.8rem;
+  font-weight: 900;
+  letter-spacing: 2px;
+}
+
+.nav-desktop {
+  display: flex;
+  align-items: center;
+  gap: 3rem;
+}
+
+.nav-links {
+  display: flex;
+  gap: 2rem;
+}
+
+.nav-links a {
+  font-size: 1rem;
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+  position: relative;
+  padding: 0.5rem 0;
+  transition: color 0.3s ease;
+}
+
+.nav-links a::after {
+  content: '';
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  width: 0%;
+  height: 2px;
+  background-color: var(--accent-color);
+  transition: width 0.3s ease;
+  box-shadow: 0 0 10px var(--accent-color);
+}
+
+.nav-links a:hover, .nav-links a.active {
+  color: var(--accent-color);
+}
+
+.nav-links a:hover::after, .nav-links a.active::after {
+  width: 100%;
+}
+
+.btn-sm {
+  padding: 0.7rem 1.5rem;
+  font-size: 0.9rem;
+}
+
+.nav-mobile-toggle {
+  display: none;
+  background: transparent;
+  color: white;
+}
+
+.nav-mobile-menu {
+  display: none;
+  position: absolute;
+  top: 100%;
+  left: 0;
+  width: 100%;
+  background: #000;
+  padding: 2rem;
+  border-bottom: 1px solid var(--accent-color);
+}
+
+@media (max-width: 992px) {
+  .nav-desktop {
+    display: none;
+  }
+  
+  .nav-mobile-toggle {
+    display: block;
+  }
+  
+  .nav-mobile-menu.open {
+    display: block;
+  }
+  
+  .nav-mobile-links {
+    display: flex;
+    flex-direction: column;
+    gap: 1.5rem;
+  }
+  
+  .nav-mobile-links a {
+    font-size: 1.2rem;
+    font-weight: 600;
+    text-transform: uppercase;
+  }
+  
+  .nav-mobile-links a.active {
+    color: var(--accent-color);
+  }
+}
